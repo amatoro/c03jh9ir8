@@ -1,0 +1,53 @@
+<div class="col-xs-12 ">
+  <%= link_to 'Back', actors_path, class: 'btn btn-default pull-right' %>
+</div>
+
+<div class="col-xs-12 ">
+  <h1>Nuevo Actor</h1>
+
+  <%= form_for @actor do |f| %>
+    <div class="margin-half">
+      <%= f.label :name, 'Nombre' %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="margin-half">
+      <%= f.label :bio, 'Biografía' %>
+      <%= f.text_area :bio, class: 'form-control', rows: 10  %>
+    </div>
+
+    <div class="margin-half">
+      <%= f.label :birth_date, 'Fecha de Nacimiento' %>
+      <%= f.text_field :birth_date, class: 'form-control' %>
+    </div>
+
+    <div class="margin-half">
+      <%= f.label :birth_place, 'Lugar de Nacimiento' %>
+      <%= f.text_field :birth_place, class: 'form-control' %>
+    </div>
+
+    <div class="margin-half">
+      <%= f.label :image_url, 'URL de la Imagen' %>
+      <%= f.text_field :image_url, class: 'form-control' %>
+    </div>
+
+    <div class="margin-half">
+      <%= f.label :alive, '¿Está vivo?' %>
+      <%= f.select(:alive, options_for_select([['Si', true], ['No', false]])) %>
+    </div>
+
+    <div class="margin-half">
+      <%= f.label :death_date, 'Fecha de Muerte' %>
+      <%= f.text_field :death_date, class: 'form-control' %>
+    </div>
+
+    <div class="margin-half">
+      <%= f.label :death_place, 'Lugar de Muerte' %>
+      <%= f.text_field :death_place, class: 'form-control' %>
+    </div>
+
+    <div class="margin">
+      <%= f.submit 'Crear Actor', class: 'btn btn-default' %>
+    </div>
+  <% end %>
+</div>

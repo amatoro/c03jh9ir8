@@ -1,34 +1,38 @@
 <div class="row">
   <div class="col-xs-12">
+    <%= link_to 'Crear Actor', new_actor_path, class: 'btn btn-default pull-right' %>
+
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-xs-12">
     <h1>Actors</h1>
-
-      <% @actors.each do |actor| %>
       
-      <div class="row">
-        <div class="col-xs-3">
-          <%= image_tag(actor.image_url) unless actor.image_url.blank? %>
+        <% @actors.each do |actor| %>
+        <div class="row margin">
+          <div class="col-xs-2">
+            <%= image_tag(actor.image_url, class:'img-responsive') unless actor.image_url.blank? %>
+          </div>
+          <div class="col-xs-1"></div>
+          
+          <div class="col-xs-8">
+            <h3><%= actor.name %></h3> 
+            <p><%= actor.bio %></p> 
+            <h5>Fecha de nacimiento: <%= actor.birth_date %></h5>   
+            <h5>Lugar de nacimiento: <%= actor.birth_place %> </h5>
+
+            <hr>
+            
+            <% if !actor.alive %>
+              <h5>Fecha fallecimiento: <%= actor.death_date  %></h5>    
+            <% end %>      
+          </div>
         </div>
-
-        <div class="col-xs-9">
-
-        <h3><%= actor.name %></h3> 
-        <p><%= actor.bio %></p> 
-        <h5>Fecha de nacimiento: <%= actor.birth_date %></h5>   
-        <h5>Lugar de nacimiento: <%= actor.birth_place %> </h5>
-
-        <hr>
-        <% if actor.alive == false %>
-         <h5>Fecha fallecimiento: <%= actor.death_date  %></h5> 
-          
-        <% else %>
-          
         <% end %>
-          
-        </div>
-      </div>
-        
-        
-      <% end %>
+      
     
   </div>
 </div>
+
